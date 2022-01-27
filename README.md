@@ -1,5 +1,5 @@
 # phpsa-kumu
-Docker image based on @jakzal/phpqa that uses the following PHP static analysis tools to analyze Lumen Laravel projects:
+Docker image based on [jakzal/phpqa](https://github.com/jakzal/phpqa) that uses the following PHP static analysis tools to analyze Lumen Laravel projects:
 
 - phpcs | [Detects coding standard violations](https://github.com/squizlabs/PHP_CodeSniffer)
 - parallel-lint | [Checks PHP file syntax](https://github.com/JakubOnderka/PHP-Parallel-Lint)
