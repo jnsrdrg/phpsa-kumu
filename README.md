@@ -23,5 +23,5 @@ docker run -it --rm -e proj=<project_name> -v "<project_location>:/project" phps
 Sample:
 For a Lumen project named "kumu" located in /home/centos/kumu:
 ```
-docker run -it --rm -e proj=kumu -v "<project_location>:/project" phpsa-kumu
+docker run -it --rm -e proj=kumu -v "/home/centos:/project" phpsa-kumu
 ```
