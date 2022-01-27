@@ -1,4 +1,5 @@
 # phpsa-kumu
+Docker image based on jakzal/phpqa that uses the following PHP static analysys tools to analyze Lumen Laravel projects.
 
 ## Deployment:
 Clone the repository:
@@ -16,5 +17,5 @@ docker run -it --rm -e proj=<project_name> -v "<project_location>:/project" phps
 Sample:
 For a Lumen project named "kumu" located in /home/centos/kumu:
 ```
-docker run -it --rm -e proj=kumyu -v "<project_location>:/project" phpsa-kumu
+docker run -it --rm -e proj=kumu -v "<project_location>:/project" phpsa-kumu
 ```
