@@ -1,7 +1,11 @@
 # phpsa-kumu
 Docker image based on @jakzal/phpqa that uses the following PHP static analysis tools to analyze Lumen Laravel projects:
 
- phpcs | [Detects coding standard violations](https://github.com/squizlabs/PHP_CodeSniffer) | &#x2705; | &#x2705; | &#x2705; |
+- phpcs | [Detects coding standard violations](https://github.com/squizlabs/PHP_CodeSniffer)
+- parallel-lint | [Checks PHP file syntax](https://github.com/JakubOnderka/PHP-Parallel-Lint)
+- phpstan | [Static Analysis Tool](https://github.com/phpstan/phpstan)
+- local-php-security-checker | [Checks composer dependencies for known security vulnerabilities](https://github.com/fabpot/local-php-security-checker)
+- phpcpd | [Copy/Paste Detector](https://github.com/sebastianbergmann/phpcpd)
 
 ## Deployment:
 Clone the repository:
