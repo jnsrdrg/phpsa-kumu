@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 ######PARALLEL-LINT#####
 parallel-lint $proj | tee parallel-lint.log #Save the output to a file
