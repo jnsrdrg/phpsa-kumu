@@ -36,17 +36,18 @@ spec:
           env:
           - name: proj
             value: "kumu"
-          # volumeMounts:
+          volumeMounts:
             # - name: entrypoint
               # mountPath: "/"
-            - name: "efs-pvc"
+            - name: projdir
               mountPath: "/project/"
       volumes:
         # - name: entrypoint
           # configMap:
             # name: entrypoint
             # defaultMode: 0744
-        - name: "phpsa-kumu-pvc"
-          persistentVolumeClaim:
-            claimName: "phpsa-kumu-pvc"
+        - name: projdir
+          hostPath:
+            path: /home/centos/
+            type: DirectoryOrCreate
            
