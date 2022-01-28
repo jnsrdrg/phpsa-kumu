@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpsa-kumu-deployment-1
+  labels:
+    app: phpsa-kumu
+    envtype: poc
+spec:
+  replicas: 1 
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0  # Avoid Terminating and ContainerCreating at the same time
+  selector:
+    matchLabels:
+      app: phpsa-kumu
+      ver: "1.0.0"
+  template:
+    metadata:
+      labels:
+        app: phpsa-kumu
+        ver: "1.0.0"
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution: 
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: run
+                operator: In
+                values:
+                - kumu-node           
+      containers:
+        - name: phpsa-kumu
+          image: jnsrdrg/phpsa-kumu:latest
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: proj
+            value: "kumu"
+          # volumeMounts:
+            # - name: entrypoint
+              # mountPath: "/"
+            - name: "efs-pvc"
+              mountPath: "/project/"
+      volumes:
+        # - name: entrypoint
+          # configMap:
+            # name: entrypoint
+            # defaultMode: 0744
+        - name: "phpsa-kumu-pvc"
+          persistentVolumeClaim:
+            claimName: "phpsa-kumu-pvc"
+           
